@@ -22,7 +22,6 @@ import pagesfactory.AuthenticationPage;
 import pagesfactory.FormRegistrationPage;
 import pagesfactory.MyAccountPage;
 import pagesfactory.TopBarPages;
-import steps.Hooks;
 
 @CucumberOptions(monochrome = true, publish = true, plugin = {
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/feature", glue = "steps")

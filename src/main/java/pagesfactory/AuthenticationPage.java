@@ -29,14 +29,25 @@ public class AuthenticationPage {
 	@FindBy(xpath = "//a[@title='Log me out']")
 	private WebElement btnSignOut;
 	
+	@FindBy(xpath = "//li[normalize-space()='Authentication failed.']")
+	private WebElement divAuthenticationFailed;
+	
+	@FindBy(xpath = "//li[normalize-space()='An email address required.']")
+	private WebElement divEmailAddressRequired;
+	
+	@FindBy(xpath = "//li[normalize-space()='Password is required.']")
+	private WebElement divPasswordRequired;
+	
 	public AuthenticationPage(WebDriver driver) {
 		AuthenticationPage.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
 	public void fillFormsignIn(String email, String password) {
+		inpEmail.clear();
 		inpEmail.sendKeys(email);
 		
+		inpPassword.clear();
 		inpPassword.sendKeys(password);
 	}
 	

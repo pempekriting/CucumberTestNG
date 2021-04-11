@@ -7,11 +7,18 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import runner.RunnerTest;
 
-public class Hooks extends RunnerTest{
+public class Hooks extends RunnerTest {
+	
+	@Before
+	public void beforeStep(Scenario scenario) throws IOException {
+		System.out.println("Scenario started! " + scenario.getName());
+	}
 	
 	@AfterStep
 	public void addScreenshot(Scenario scenario) throws IOException {
@@ -19,5 +26,10 @@ public class Hooks extends RunnerTest{
 		byte[] fileContent = FileUtils.readFileToByteArray(screenshot);
 		scenario.attach(fileContent, "image/png", "screenshot");
 
+	}
+	
+	@After
+	public void afterStep(Scenario scenario) throws IOException {
+		System.out.println("Scenario finished! " + scenario.getName());
 	}
 }
