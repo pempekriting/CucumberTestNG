@@ -76,7 +76,7 @@ public class RunnerTest extends AbstractTestNGCucumberTests {
 		// Browsers
 		if (browser.equalsIgnoreCase("chrome")) {
 			caps = DesiredCapabilities.chrome();
-			String capabilities[] = { "start-maximized", "incognito", "window-size=1920,1080" };
+			String[] capabilities = { "start-maximized", "incognito", "window-size=1920,1080" };
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments(capabilities);
 			caps.setCapability(ChromeOptions.CAPABILITY, options);

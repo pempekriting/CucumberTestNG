@@ -7,7 +7,7 @@
 	<test name="Automation Practice">
 		<parameter name="platform" value="Linux" />
 		<parameter name="browser" value="chrome" />
-		<parameter name="version" value="88.0" />
+		<parameter name="version" value="92.0" />
 		<parameter name="node" value="http://localhost:4444/wd/hub" />
 		<parameter name="url" value="http://automationpractice.com/"></parameter>
 		<classes>

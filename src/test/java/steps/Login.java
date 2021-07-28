@@ -61,7 +61,4 @@ public class Login extends RunnerTest {
 	public void notification_error_password_required_is_displayed() {
 		wait.until(ExpectedConditions.visibilityOf(authenticationPage.getDivPasswordRequired()));
 	}
-	
-	
-	
 }

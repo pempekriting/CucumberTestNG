@@ -5,7 +5,7 @@ Feature: Login to Web
     Given User is on Home Page
     And User go to menu sign in
     When User enters <email> and <password>
-    | email  																| password    |
+    | email  									| password    |
     | student-automation1@mailinator.com		| 123456789   |
     And Click sign in button
     Then User can visit my account page
@@ -14,7 +14,7 @@ Feature: Login to Web
     Given User is on Home Page
     And User go to menu sign in
     When User enters <email> and <password>
-    | email  																  | password     |
+    | email  									| password     |
     | student-automation111@mailinator.com		| 1234567892   |
     And Click sign in button
     Then Notification error authentication failed is displayed
@@ -23,7 +23,7 @@ Feature: Login to Web
     Given User is on Home Page
     And User go to menu sign in
     When User enters <email> and <password>
-    | email  																  | password     |
+    | email  									| password     |
     | student-automation111@mailinator.com		| 123456789    |
     And Click sign in button
     Then Notification error authentication failed is displayed
@@ -32,7 +32,7 @@ Feature: Login to Web
     Given User is on Home Page
     And User go to menu sign in
     When User enters <email> and <password>
-    | email  																  | password     |
+    | email  									  | password     |
     | student-automation1@mailinator.com		  | 1234567892   |
     And Click sign in button
     Then Notification error authentication failed is displayed
@@ -51,12 +51,13 @@ Feature: Login to Web
     | 123456789    |
     And Click sign in button
     Then Notification error email address required is displayed
-    
+
+
     Scenario: Login with email and without password
     Given User is on Home Page
     And User go to menu sign in
     When User enter <email>
-    | email  																  |
+    | email  									  |
     | student-automation1@mailinator.com		  |
     And Click sign in button
     Then Notification error password required is displayed
