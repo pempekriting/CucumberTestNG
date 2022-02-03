@@ -2,17 +2,10 @@ package hooks;
 
 import driver.WebDriverInstance;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
-import net.masterthought.cucumber.Configuration;
-import net.masterthought.cucumber.ReportBuilder;
-import net.masterthought.cucumber.Reportable;
-import net.masterthought.cucumber.json.support.Status;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class CucumberHooks {
 
@@ -22,26 +15,9 @@ public class CucumberHooks {
     }
 
     @After
-    public static void after() {
+    public static void after(Scenario scenario) {
+        scenario.attach(((TakesScreenshot) WebDriverInstance.getWebDriver()).getScreenshotAs(OutputType.BYTES),
+                "image/png", "evidence-test");
         WebDriverInstance.quitDriver();
     }
-
-    /*@AfterAll
-    public static void afterAll() {
-        File reportOutputDirectory = new File("target");
-        List<String> jsonFiles = new ArrayList<>();
-        jsonFiles.add("target/cucumber.json");
-
-        String buildNumber = "1";
-        String projectName = "cucumberProject";
-
-        Configuration configuration = new Configuration(reportOutputDirectory, projectName);
-        configuration.setNotFailingStatuses(Collections.singleton(Status.SKIPPED));
-        configuration.setBuildNumber(buildNumber);
-        configuration.addClassifications("Platform", "Linux");
-        configuration.addClassifications("Browser", "Chrome");
-
-        ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
-        Reportable result = reportBuilder.generateReports();
-    }*/
 }
