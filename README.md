@@ -49,7 +49,3 @@ What things you need to install:
   1. Open the project using any IDE (Eclipse, IDEA, etc)
   2. Download sources Maven and update the project
   3. Running the project using command `mvn clean test`
-
-# Report
-
-You can check the report [here](https://pempekriting.github.io/cucumber-html-reports/).
