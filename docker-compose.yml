@@ -1,13 +1,13 @@
 version: "3"
 services:
   selenium-hub:
-    image: selenium/hub:3.141.59-20210311
+    image: selenium/hub:3.141.59-20210929
     container_name: selenium-hub
     ports:
       - "4444:4444"
 
   chrome:
-    image: selenium/node-chrome:3.141.59-20210311
+    image: selenium/node-chrome:3.141.59-20210929
     container_name: selenium-chrome
     volumes:
       - /dev/shm:/dev/shm
@@ -16,14 +16,6 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
-
-  firefox:
-    image: selenium/node-firefox:3.141.59-20210311
-    container_name: selenium-firefox
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - selenium-hub
-    environment:
-      - HUB_HOST=selenium-hub
-      - HUB_PORT=4444
+      - NODE_MAX_SESSION=2
+      - NODE_MAX_INSTANCES=5
+      - START_XVFB=false

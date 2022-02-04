@@ -1,19 +1,25 @@
 package pagesfactory;
 
-import driver.WebDriverInstance;
+import context.TestContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
-    WebDriverInstance webDriverInstance = WebDriverInstance.getInstance();
+    private final WebDriverWait wait;
+    private final WebDriver driver;
 
-    public WebDriverWait getWait() {
-        return webDriverInstance.getWebDriverWait();
+    public BasePage(TestContext context) {
+        wait = context.driverWait;
+        driver = context.driver;
     }
 
     public WebDriver getDriver() {
-        return webDriverInstance.getWebDriver();
+        return driver;
+    }
+
+    public WebDriverWait getWait() {
+        return wait;
     }
 
     public String getValueAttribute(WebElement webElement, String attributeName) {

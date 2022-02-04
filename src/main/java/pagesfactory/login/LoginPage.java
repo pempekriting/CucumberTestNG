@@ -1,5 +1,6 @@
 package pagesfactory.login;
 
+import context.TestContext;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -18,7 +19,8 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[@class='error-message-container error']//h3")
     WebElement ctrNotificationMessage;
 
-    public LoginPage() {
-        PageFactory.initElements(getDriver(), this);
+    public LoginPage(TestContext context) {
+        super(context);
+        PageFactory.initElements(context.driver, this);
     }
 }

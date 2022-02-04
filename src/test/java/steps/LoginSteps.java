@@ -1,17 +1,25 @@
 package steps;
 
+import context.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+import pagesfactory.PageFactoryManager;
 import pagesfactory.login.LoginPageAction;
 import pagesfactory.login.LoginPageValidation;
 import pagesfactory.products.ProductsPageValidation;
 
 public class LoginSteps {
-    LoginPageAction action = new LoginPageAction();
-    LoginPageValidation loginPageValidation = new LoginPageValidation();
-    ProductsPageValidation productsPageValidation = new ProductsPageValidation();
+    private final LoginPageAction action;
+    private final LoginPageValidation loginPageValidation;
+    private final ProductsPageValidation productsPageValidation;
+
+    public LoginSteps(TestContext context) {
+        action = PageFactoryManager.getLoginPageAction(context);
+        loginPageValidation = PageFactoryManager.getLoginPageValidation(context);
+        productsPageValidation = PageFactoryManager.getProductsPageValidation(context);
+    }
 
     @Given("User is on login page")
     public void userIsOnLoginPage() {
