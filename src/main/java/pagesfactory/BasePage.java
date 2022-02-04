@@ -6,13 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
+    WebDriverInstance webDriverInstance = WebDriverInstance.getInstance();
 
     public WebDriverWait getWait() {
-        return WebDriverInstance.getWebDriverWait();
+        return webDriverInstance.getWebDriverWait();
     }
 
     public WebDriver getDriver() {
-        return WebDriverInstance.getWebDriver();
+        return webDriverInstance.getWebDriver();
     }
 
     public String getValueAttribute(WebElement webElement, String attributeName) {

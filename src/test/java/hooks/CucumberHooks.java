@@ -8,16 +8,17 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 public class CucumberHooks {
+    static WebDriverInstance webDriverInstance;
 
     @Before
     public static void before() {
-        WebDriverInstance.initialize();
+        webDriverInstance = WebDriverInstance.getInstance();
     }
 
     @After
     public static void after(Scenario scenario) {
-        scenario.attach(((TakesScreenshot) WebDriverInstance.getWebDriver()).getScreenshotAs(OutputType.BYTES),
+        scenario.attach(((TakesScreenshot) webDriverInstance.getWebDriver()).getScreenshotAs(OutputType.BYTES),
                 "image/png", "evidence-test");
-        WebDriverInstance.quitDriver();
+        webDriverInstance.quitDriver();
     }
 }

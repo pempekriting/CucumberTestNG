@@ -12,7 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 * Annotations.
 ( Run your tests in arbitrarily big thread pools with various policies available (all methods in their own thread, one thread per test class, etc...).
-( Test that your code is multithread safe.
+( Test that your code is multithreading safe.
 * Flexible test configuration.
 * Support for data-driven testing (with @DataProvider).
 * Support for parameters.
@@ -33,22 +33,9 @@ What things you need to install:
 - [Maven](https://maven.apache.org/install.html)
 - [Docker](https://docs.docker.com/desktop/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
-- [Selenoid](https://aerokube.com/selenoid/latest/)
 - [Selenium Grid](https://github.com/SeleniumHQ/docker-selenium/tree/selenium-3)
-- [Jenkins](https://www.jenkins.io/download/)
 
 ## How to Run the Project
-* ### Running on Selenoid
-
-	1. Install the Docker Compose and Docker first on your machine
-	2. Pull the latest images Selenoid Chrome and Selenoid Firefox using `docker pull selenoid/chrome:latest` and `docker pull selenoid/firefox:latest`
-	3. Enter to the project using your terminal and run the command `docker-compose -f docker-compose-selenoid.yml up -d`
-	4. Wait until the Selenoid finished installing
-	5. Open the project using any IDE (Eclipse, IDEA, etc)
-	6. Download sources Maven and update the project
-	7. Each machine that has Selenoid installed has a different port, you can change it in the `regression.xml` file
-	8. Running the project using command `mvn test`
-	
 * ### Running on Selenium Grid
     
     1. Install the Docker Compose first on your machine
@@ -56,17 +43,10 @@ What things you need to install:
     3. Wait until the Selenium Grid finished installing
     4. Open the project using any IDE (Eclipse, IDEA, etc)
     5. Download sources Maven and update the project
-	6. Each machine that has Selenium Grid installed has a different port, you can change it in the `regression.xml` file
-	7. Running the project using command `mvn test`
+    6. Running the project using command `mvn clean test -Drunning-on-hub=true`
 
-* ### Running on Jenkins
-	1. Install the Jenkins first on your machine
-	2. Make sure Selenoid or Selenium Gird on Docker is running
-	3. Don't forget to setup your JDK and Maven inside your Jenkins
-	4. Create Freestyle project on Jenkins
-	5. Go to tab build and choose `Invoke top-level Maven targets`
-	6. At the Goals field enter the value `test -PRegression`
-	7. Click on the button Advanced
-	8. At the POM field, enter the path of `pom-jenkins.xml`
-	9. Click button save
-	10. Click on the Build Now button
+* ### Running on local machine
+
+  1. Open the project using any IDE (Eclipse, IDEA, etc)
+  2. Download sources Maven and update the project
+  3. Running the project using command `mvn clean test`
