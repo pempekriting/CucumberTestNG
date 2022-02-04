@@ -1,6 +1,6 @@
 # Project Automation Web
 
-Hi! This is a project automation web with study case [Automation Practice](http://automationpractice.com/index.php) using Maven, Cucumber, TestNG, and Selenium
+Hi! This is a project automation web with study case [Sauce Labs](https://www.saucedemo.com/) using Maven, Cucumber, TestNG, and Selenium
 
 ## Getting Started
 
@@ -28,8 +28,7 @@ TestNG is designed to cover all categories of tests:  unit, functional, end-to-e
 
 What things you need to install:
 
-- [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
-- [Java Runtime Engine](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
+- [Java Development Kit 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) 
 - [Maven](https://maven.apache.org/install.html)
 - [Docker](https://docs.docker.com/desktop/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
@@ -50,3 +49,7 @@ What things you need to install:
   1. Open the project using any IDE (Eclipse, IDEA, etc)
   2. Download sources Maven and update the project
   3. Running the project using command `mvn clean test`
+
+# Report
+
+You can check the report [here](https://pempekriting.github.io/cucumber-html-reports/).
