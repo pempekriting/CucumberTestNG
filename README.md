@@ -1,3 +1,5 @@
+[![Automation Test Runner](https://github.com/pempekriting/CucumberTestNG/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/pempekriting/CucumberTestNG/actions/workflows/main.yml)
+
 # Project Automation Web
 
 Hi! This is a project automation web with study case [Sauce Labs](https://www.saucedemo.com/) using Maven, Cucumber, TestNG, and Selenium
