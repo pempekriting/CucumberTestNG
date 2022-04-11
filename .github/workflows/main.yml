@@ -33,3 +33,15 @@ jobs:
 
       - name: Run the test
         run: mvn clean test
+      
+      - name: Commit files # transfer the new html files back into the repository
+        run: |
+          git config --local user.name "pempekriting"
+          git add ./report
+          git commit -m "Updating the repository report"
+    
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
