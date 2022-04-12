@@ -18,7 +18,7 @@ public class WebDriverInstance {
 
         if (isRunningOnHub) {
             try {
-                URL_ADDRESS = new URL("http://172.20.0.2:4444/wd/hub");
+                URL_ADDRESS = new URL(System.getProperty("urlHub", "http://172.20.0.2:4444/wd/hub"));
                 webDriver = new RemoteWebDriver(URL_ADDRESS, options);
             } catch (Exception e) {
                 System.out.println("Error : " + e);
