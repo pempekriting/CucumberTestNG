@@ -20,8 +20,9 @@ jobs:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '17'
 
-      -  uses: docker-practice/actions-setup-docker@master
-      - run: |
+      - uses: docker-practice/actions-setup-docker@master
+      - name: Run the test
+        run: |
           set -x
 
           docker version
@@ -30,8 +31,8 @@ jobs:
           
           IP_HUB=`docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' selenium-hub`
           
-      - name: Run the test
-        run: mvn clean test -Drunning-on-hub=true -DurlHub=http://$IP_HUB:4444/wd/hub
+          mvn clean test -Drunning-on-hub=true -DurlHub=http://$IP_HUB:4444/wd/hub
+          
         
       - name: Copy Cucumber JSON Report
         run: |
