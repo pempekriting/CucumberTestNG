@@ -14,7 +14,7 @@ public class BasePage {
         driver = context.driver;
     }
 
-    public WebDriver getDriver() {
+    private WebDriver getDriver() {
         return driver;
     }
 

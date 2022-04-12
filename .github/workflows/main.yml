@@ -28,10 +28,10 @@ jobs:
 
           docker-compose -f docker-compose.yml up -d
           
-          IP_HUB=docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' selenium-hub
+          IP_HUB=`docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' selenium-hub`
           
       - name: Run the test
-        run: mvn clean test -Drunning-on-hub=true -DurlHub=http://$NAME:4444/wd/hub
+        run: mvn clean test -Drunning-on-hub=true -DurlHub=http://$IP_HUB:4444/wd/hub
         
       - name: Copy Cucumber JSON Report
         run: |
