@@ -28,12 +28,12 @@ jobs:
 
           docker-compose -f docker-compose.yml up -d
           
-          docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' selenium-grid
+          docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' selenium-hub
           
           docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' selenium-chrome
           
       - name: Run the test
-        run: mvn clean test
+        run: mvn clean test -Drunning-on-hub=true
         
       - name: Copy Cucumber JSON Report
         run: |
