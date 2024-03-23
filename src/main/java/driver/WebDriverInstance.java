@@ -1,6 +1,5 @@
 package driver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -12,9 +11,7 @@ public class WebDriverInstance {
         RemoteWebDriver webDriver = null;
         URL URL_ADDRESS;
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--incognito", "--start-maximized", "window-size=1920,1080");
-        options.setHeadless(true);
-        WebDriverManager.chromedriver().setup();
+        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--incognito", "--start-maximized", "window-size=1920,1080", "--headless");
 
         if (isRunningOnHub) {
             try {
