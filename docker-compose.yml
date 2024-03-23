@@ -1,13 +1,13 @@
 version: "3"
 services:
   selenium-hub:
-    image: selenium/hub:3.141.59-20210929
+    image: selenium/hub:4.18.1-20240224
     container_name: selenium-hub
     ports:
       - "4444:4444"
 
   chrome:
-    image: selenium/node-chrome:3.141.59-20210929
+    image: selenium/node-chrome:4.18.1-20240224
     container_name: selenium-chrome
     volumes:
       - /dev/shm:/dev/shm
